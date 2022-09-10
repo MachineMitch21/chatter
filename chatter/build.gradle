@@ -1,0 +1,37 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.3'
+	id 'io.spring.dependency-management' version '1.0.13.RELEASE'
+	id 'java'
+}
+
+group = 'com.chatter'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// Sprint boot
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.session:spring-session-core'
+
+	// JSON parsing
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.0'
+
+	// Mongo DB Driver
+	// implementation 'org.mongodb:mongodb-driver-sync'
+	// implementation 'org.mongodb:mongodb-driver-core'
+
+	// Mongo spring boot integration
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+
+	// Sprint boot dev/test tools
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
